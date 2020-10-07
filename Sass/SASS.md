@@ -279,9 +279,9 @@ h3 {
 ![](https://i.imgur.com/gVMoXET.png)
 ### 設定
 * 建立一個Scss資料夾，裡面放所有的Scss檔案。
-![](https://i.imgur.com/0k8kyaC.png)
+    * ![](https://i.imgur.com/0k8kyaC.png)
 * 建立vue.config.js檔案
-![](https://i.imgur.com/dLK6o6v.png)
+    * ![](https://i.imgur.com/dLK6o6v.png)
 * 在vue.config.js中配置，並重啟專案，即可在.vue檔中使用Scss。
 ```bash=
 module.exports = {
