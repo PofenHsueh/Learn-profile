@@ -45,12 +45,12 @@ Sass/Scss需要另外編譯成 CSS，瀏覽器才看得懂。
 ## 如何使用
 ### @import檔案
 * Sass/Scss可將檔案分割成各個部分，並組織成各個獨立的功能，以符號  **_**  作爲這些檔案名稱中的前綴符號，加入前綴符號的這些檔案就不會直接被編譯。
-![](https://i.imgur.com/k4WwIH7.png)
+    * ![](https://i.imgur.com/k4WwIH7.png)
 * 所有引入的 Sass/Scss 檔案都將引入到主要的Sass/Scss檔案中（Ex.index.scss），再將Scss檔案彙整編譯成一隻CSS檔。
 * @import檔案除了對於架構的組織上更有邏輯也較好管理，也能減少反覆撰寫相同的程式。
 * Sass/Scss是由上至下編譯，要注意@import檔案的順序，以免出錯。
 Ex.index.scss
-![](https://i.imgur.com/N9T8GgF.png)
+    * ![](https://i.imgur.com/N9T8GgF.png)
 
 ### 變數（variable）
 將變數視為一種存儲要在樣式表中**重複使用**的信息的方法。
@@ -68,6 +68,7 @@ Ex.index.scss
      * Ex. null。 
 
 >scss
+>
 ```bash=
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
@@ -79,6 +80,7 @@ body {
 ```
 
 >編譯後css
+>
 ```bash=
 body {
   font: 100% Helvetica, sans-serif;
@@ -87,9 +89,11 @@ body {
 ```
 2. 支援運算
 >scss
+>
 ![](https://i.imgur.com/GA9piC2.png)
 
 >編譯後css
+>
 ![](https://i.imgur.com/AYJjf7F.png)
 
 ### 巢狀
@@ -108,6 +112,7 @@ body {
 ```
 在巢狀中不僅只有 child selectors 可以使用，還可以使用在相同的 Properties 上。
 >Scss
+>
 ```bash=
 .parent {
   font : {
@@ -118,6 +123,7 @@ body {
 }
 ```
 >編譯後的CSS
+>
 ```bash=
 .parent {
   font-family: Roboto, sans-serif;
@@ -145,6 +151,7 @@ body {
 ```
 
 >Scss
+>
 ```bash=
 //_mixin.scss
 
@@ -166,6 +173,7 @@ h2 {
 }
 ```
 >編譯後CSS
+>
 ```bash=
 h2 {
   overflow: hidden;
@@ -208,6 +216,7 @@ h2 {
 
 以下為h3在各個尺寸px值不同的範例。
 >Scss
+>
 ```bash=
 h3 {
   padding: 10px;
@@ -222,6 +231,7 @@ h3 {
 ```
 
 >編譯後CSS
+>
 ```bash=
 h3 {
   padding: 10px;
