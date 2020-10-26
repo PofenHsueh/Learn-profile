@@ -20,7 +20,7 @@ $ yarn dev
 
 ### vite ＆ webpack比較
 - webpack
-    -  需要靜態分析過 app 的所有檔案以及套件的相依性，然後根據這些資訊把東西包在一起。
+    -  需要靜態分析過所有檔案以及套件的相依性，然後根據這些資訊把東西包在一起。
     -  component越多，花的時間越多。
 ![](https://i.imgur.com/nSUB3ZO.png)
 - vite
@@ -44,8 +44,6 @@ $ yarn dev
 
 - 類似[Snowpack](https://www.snowpack.dev/)
     - ![](https://i.imgur.com/1BFm1VU.jpg)
-
-
 
 ##### 資料來源
 - [webpack 新手教學之淺談模組化與 snowpack](https://blog.techbridge.cc/2020/01/22/webpack-%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8%E4%B9%8B%E6%B7%BA%E8%AB%87%E6%A8%A1%E7%B5%84%E5%8C%96%E8%88%87-snowpack/)
