@@ -33,10 +33,9 @@
 ```
 ## 建立編譯環境
 Sass/Scss需要另外編譯成 CSS，瀏覽器才看得懂。
-1. 若使用Visual Studio Code可安裝 **Live Sass Compailer** 
-![](https://i.imgur.com/m1aFfX7.png)
-按下 Watch Sass就可以進行編譯。
-![](https://i.imgur.com/PoTtr69.png)
+1. 若使用Visual Studio Code可安裝 **Live Sass Compailer** ，按下 Watch Sass就可以進行編譯。
+    - ![](https://i.imgur.com/m1aFfX7.png)
+    - ![](https://i.imgur.com/PoTtr69.png)
 2. 亦可下載prepros進行編譯。
 
 ## 如何使用
