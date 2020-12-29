@@ -54,22 +54,37 @@ npm uninstall tailwindcss postcss autoprefixer
 npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 ```
 ## 自定義
-- 在tailwind.css中使用
-    - 使用`@layer`指令告訴Tailwind一組自定義樣式屬於哪個“桶”。有效層是`base`，`components`，和`utilities`。
-    - `@apply`將任何現有實用程序類內聯到您自己的自定義CSS中。
+- 有以下兩種方式可以設定
+    - tailwind.css中設定
+        - 使用`@layer`指令告訴Tailwind一組自定義樣式屬於哪個“桶”。有效層是`base`，`components`，和`utilities`。
+        - `@apply`將任何現有實用程序類內聯到您自己的自定義CSS中。
+    - tailwind.config.js中設定
+        - 引入`const plugin = require('tailwindcss/plugin')`
+        - plugin中設定
 ### base
 - 基本（或全局）樣式是樣式表開頭的樣式，可為基本HTML元素（例如`<a>`標籤，標題等）設置有用的默認值。
-
 > tailwind.css
 ```bash=
 @layer base {
   h1 {
-    @apply text-2xl font-bold text-blue-600;
+    @apply text-2xl font-bold;
   }
 }
 ```
->效果
-![](https://i.imgur.com/U07G4xe.png)
+>tailwind.config.js
+```bash=
+const plugin = require('tailwindcss/plugin')
+ plugins: [
+    plugin(function({ addBase, theme }) {
+      addBase({
+        'h1': { fontSize: theme('fontSize.2xl'),fontWeight:theme('fontWeight.bold')},
+      })
+    })
+  ]
+```
+>效果為圖中的測試tailwind base。
+![](https://i.imgur.com/DOux3hE.png)
+
 
 ### components
 - 有重複使用到相同css效果時，可將其包成component形式，以`class="名稱"`帶入使用。
@@ -81,11 +96,45 @@ npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer
   }
 }
 ```
->只要class="text-content"，就會有以下效果
+>tailwind.config.js
+
+```bash=
+const plugin = require('tailwindcss/plugin')
+plugins: [
+   plugin(function({ addComponents, theme }) {
+      const text = {
+        '.text-content': {
+          fontWeight: '700',
+          backgroundColor:theme('colors.yellow.300'),
+          textAlign:'center',
+          color: theme('colors.white'),
+        }
+      }
+
+      addComponents(text)
+    })
+  ]
+```
+
+>class="text-content"
+>效果為圖中的測試components
 ![](https://i.imgur.com/IhP7xoN.png)
 
 ### utilities
-- 有一些tailwind沒有的效果，可以在tailwind.config.js中的plugin設定，亦可在tailwind.css中設定。
+- 新增tailwind沒有的效果。
+>tailwind.css
+```bash=
+@layer utilities {
+  .text-dispersion {
+    text-justify: inter-character;
+    text-align-last: justify;
+    text-align: text-justify;
+  }
+  .vertical {
+    writing-mode: vertical-rl;
+  }
+}
+```
 
 >tailwind.config.js
 ```bash=
@@ -110,6 +159,9 @@ const plugin = require("tailwindcss/plugin");
   ]
 };
 ```
+>效果為圖中的測試utilities
+![](https://i.imgur.com/TNbgka2.png)
+
 ### darkMode
 - 在tailwind.config.js中設定，當`darkMode="class"`，class中只要有設定`dark:css效果`，就會顯示出dark模式的CSS效果，默認情況下，`darkMode=false`。
 
@@ -159,3 +211,4 @@ export default {
 
 - `class="dark"`
     - ![](https://i.imgur.com/kYL6iQ9.png)
+
