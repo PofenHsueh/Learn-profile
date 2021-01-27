@@ -1,28 +1,10 @@
 # Git
-### 安裝
-- 安裝Homebrew
-    - `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-- 安裝git
-    - `$ brew install git`
-- 確認是否成功
-    - `$ git --version` 
-### 識別資料
-- 查看
-    - `$ git config --list`
-- 設定識別資料 
-    - `$ git config --global user.name "Jade Hsueh"`
-    - `$ git config --global user.email jadeHsueh@example.com`
-### 設定SSH Key
-- 檢查是否存在
-    - `$ cd ~/.ssh`
-    - `$ ls`
-    - ![](https://i.imgur.com/Agl6Akh.png)
-- 產生SSH Key
-    - `$ ssh-keygen` 
-- 打開SSH Key 
-    - `$ cat ~/.ssh/id_rsa.pub` 
-- 複製你的SSH Key到github or gitlab SSH Key設定裡
-
+## 基本概念
+### Git是什麼
+- Git是一種分散式版本的版本控制系統
+>可以清楚紀錄每個檔案在什麼時候加進來、什麼時候被修改或刪除。
+### Git不等於Github
+- Git是一款版本控制軟體，而Github是一個商業網站，Github本體是一個Git伺服器。
 ###  command line基本指令
 - `ls`
     - 列出所有檔案和路徑 
@@ -53,11 +35,49 @@
     - 變化型：
         - `rmdir`：刪除空資料夾，若資料夾內有檔案就無法刪除。
         - `rm -rf` ：刪除整個檔案或整個資料夾。
-
-### Git指令
+## 基本設定
+### 安裝
+- 安裝Homebrew
+    - `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+- 安裝git
+    - `$ brew install git`
+- 確認是否成功
+    - `$ git --version` 
+### 識別資料
+- 查看
+    - `$ git config --list`
+- 設定識別資料 
+    - `$ git config --global user.name "Jade Hsueh"`
+    - `$ git config --global user.email "jadeHsueh@example.com"`
+### 設定SSH Key
+- 檢查是否存在
+    - `$ cd ~/.ssh`
+    - `$ ls`
+    - ![](https://i.imgur.com/Agl6Akh.png)
+- 產生SSH Key
+    - `$ ssh-keygen` 
+- 打開SSH Key 
+    - `$ cat ~/.ssh/id_rsa.pub` 
+- 複製你的SSH Key到github or gitlab SSH Key設定裡。
+## 關於Git
+### 常用指令
 ![](https://i.imgur.com/Zm8O3TF.png)
 - 初始化數據庫： `$ git init`
+    - 讓Git開始對這個目錄進行版控。
+>會在目錄裡建立一個`.git`目錄 （在一些作業系統是隱藏，要開啟檢視隱藏檔設定才能看到）
 - 查詢當前狀態：`$ git status`
-- 將檔案加入到索引：`$ git add .`
-- 將索引檔案變成一個更新(commit)：`$ git commit -m "新增網頁環境"`
+- 將檔案加入到索引：`$ git add '檔案名稱'`
+    - 讓Git開始追蹤它 
+    - 將全部加入追蹤`$ git add .` or `$ git add --all`
+> `$ git add .`在舊版本中，這個指令會把「新增的檔案」以及「修改過的檔案」加到索引，但不會處理「刪除檔案」的行為，但在版本2.X之後就沒有這個問題。
 
+> 雖然更新到2.X版後可以處理「刪除檔案」的行為，但是`$ git add .`這個指令會把目前當下這個目錄，以及子目錄裡的異動全部加到索引，但是，在這個目錄以外就不處理了（`$ git add --all`就沒這問題，不管在哪層都可以將檔案全部加入索引），所以執行這個指令要**注意自己所在的目錄位置**。
+- 將索引檔案變成一個更新(commit)：`$ git commit -m "新增網頁環境"`
+### 指令縮寫設定
+- `$ git config --global alias.co checkout`
+    - 上述指令是將`$ git checkout`簡寫成`$ git co`，設定之後，輸入`$ git co` 就跟`$ git checkout`會有一樣的效果。
+### 不想再被Git控制版本
+- Git的版控就是只靠`.git`目錄在做事，所以如果這個目錄不想被版控，只要將`.git`目錄移除，Git就對這個目錄失去控制權。
+> 在整個專案目錄裡，什麼檔案目錄都可以救，但是只要刪除`.git`目錄，就救不回來了。
+
+<!-- Blob、Tree、Commit、Tag -->
