@@ -79,19 +79,36 @@
 - 英文、中文都可以，簡單清楚即可。
 #### 查詢紀錄 `$ git log`
 - 越新的資訊會在越上面
-- 在`$ git log`後加上參數`--amand`，可以編輯最後一次的commit
-    - `$ git log --amand`
+- 檢視單一檔案紀錄：`$ git log 檔案名稱`
 #### 刪除檔案 `$ git rm index.html`
 - 執行`$ git rm index.html`是會將檔案刪除，若沒有真的要將檔案刪除，只是不想被Git控管
     - 加上 --cached參數：`$ git rm index.html --cached`
+    - 要讓檔案再次被追蹤：`$ git add .`
+#### 切換分支：`$ git checkout`
+- `$ git checkout 分支名稱`：切換到指定分支。
+- `$ git checkout 檔名OR路徑`：把檔案從.git目錄裡拉一份到目前的工作目錄。
 #### `$ git fetch`
 #### `$ git pull`
 #### `$ git push`
 ### 指令縮寫設定
-- `$ git config --global alias.co checkout`
-    - 上述指令是將`$ git checkout`簡寫成`$ git co`，設定之後，輸入`$ git co` 就跟`$ git checkout`會有一樣的效果。
+- 將`$ git checkout`簡寫成`$ git co`：`$ git config --global alias.co checkout`
+>設定之後，輸入`$ git co` 就跟`$ git checkout`會有一樣的效果：
+
+### .gitignore檔案
+- 有些檔案不想被git追蹤，在專案目錄新增一個`.gitignore`檔案，並設定想要忽略的規則。
+    - `$ touch .gitignore`建立檔案
+    - ![](https://i.imgur.com/PLho5Ww.png)
+- `.gitignore`檔案設定的規則，只**對在規則設定之後的有效**。
 ### 不想再被Git控制版本
 - Git的版控就是只靠`.git`目錄在做事，所以如果這個目錄不想被版控，只要將`.git`目錄移除，Git就對這個目錄失去控制權。
 > 在整個專案目錄裡，什麼檔案目錄都可以救，但是只要刪除`.git`目錄，就救不回來了。
-
+<!-- ### 修改commit紀錄
+- git rebase
+- git reset
+- amend
+    - 只能修改最後一筆commit紀錄 
+        - git commit --amend -m"your commit" 
+    - 追加檔案到最後一筆commit紀錄
+        - git add . 
+        - git commit --amend --no-edit   -->
 <!-- Blob、Tree、Commit、Tag -->
