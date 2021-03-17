@@ -143,8 +143,18 @@
     - add指令是指要加入一個遠端的節點。
     - 在這裡的origin是一個代名詞，指的是後面那串GitHub伺服器的位置。 
     - 遠端的節點預設就會叫origin。
-### `$ git push`
-### `$ git clone`
+### 將檔案上傳至遠端：`$ git push`
+- `$ git push -u origin master`
+    - master這個分支的內容，推向 origin這個位置。
+    - 在 origin 那個遠端 Server 上，如果 master 不存在，就建立一個叫做 master 的同名分支。
+    - 但如果本來 Server 上就存在 master 分支，便會移動 Server上 master分支的位置，使它指到目前最新的進度上。
+    - 設定 upstream，就是那個` -u `參數
+        - 如果有設定，當下次執行 git push 指令的時候，它就會用來當預設值（以上述為例：預設為origin的master分支）。
+        - 沒設定，就必須在每次 Push 的時候都跟 Git 講清楚、說明白：`$ git push origin master`。
+
+### 將檔案從遠端複製到本地：`$ git clone`
+- `$ git clone 「Repository的SSH或HTTPS」`
+- Clone 指令會把整個專案的內容複製一份到你的電腦裡，這裡指的「內容」不是只有檔案，而是指所有整個專案的歷史紀錄、分支、標籤等內容都會複製一份下來。
 ### 指令縮寫設定：`$ git config --global alias.簡寫 指令名稱`
 - `$ git config --global alias.co checkout`將`$ git checkout`簡寫成`$ git co`
 >設定之後，輸入`$ git co` 就跟`$ git checkout`會有一樣的效果。
