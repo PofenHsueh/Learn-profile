@@ -1,4 +1,5 @@
 # Tailwind css
+###### tags: `前端`
 
 ## 安裝
 - 以Vue.js為例
@@ -46,7 +47,7 @@ new Vue({
 }).$mount("#app");
 ```
 
-> tailwind 2 中的postcss版本為8，Vue.js目前不支援（我在寫這篇的時候），所以安裝完會發生錯誤，要將postcss降版才能順利使用。
+> tailwind 2 中的postcss版本為8，Vue.js目前不支援（我在寫這篇的時候-->2020-12-30），安裝完會發生錯誤，要將postcss降版才能順利使用。
 
 > 降版本
 ```bash=
@@ -56,7 +57,7 @@ npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer
 ## 自定義
 - 有以下兩種方式可以設定
     - tailwind.css中設定
-        - 使用`@layer`指令告訴Tailwind一組自定義樣式屬於哪個“桶”。有效層是`base`，`components`，和`utilities`。
+        - 使用`@layer`指令告訴Tailwind一組自定義樣式屬於哪個『類別』。有效類別是`base`，`components`，和`utilities`。
         - `@apply`將任何現有實用程序類內聯到您自己的自定義CSS中。
     - tailwind.config.js中設定
         - 引入`const plugin = require('tailwindcss/plugin')`
