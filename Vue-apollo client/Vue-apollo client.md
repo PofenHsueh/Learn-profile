@@ -1,4 +1,4 @@
-# Vue-apollo
+# Vue-apollo client
 ###### tags: `前端`
 ### Apollo Client
 著重於從客戶端**向服務端發送和接收請求**。
